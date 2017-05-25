@@ -45,14 +45,20 @@ $(document).ready(function () {
 
 	//Maximum Heart Rate Calculator
 	$("#maxHRSubmit").on("click", function(event) {
-		event.preventDefault();
-		var maxHrAge = parseInt($("#maxHRage").val().trim());
-		var exerciseIntensity = parseInt($("#exerciseIntensity").val().trim());
-		exerciseIntensity = exerciseIntensity / 100;
-		var maxHR = (220 - maxHrAge) * exerciseIntensity;
-		maxHR = Math.round(maxHR);
-		console.log(maxHR);
-		$("#maxHRresult").val(maxHR + " beats per minute");
+		//adding the if statement for form validation. The number will be calculated only if an input was entered by the user.
+		if($("#maxHRage").val().length > 0 && $("#exerciseIntensity").val().length > 0) {
+			event.preventDefault();
+			var maxHrAge = parseInt($("#maxHRage").val().trim());
+			var exerciseIntensity = parseInt($("#exerciseIntensity").val().trim());
+			exerciseIntensity = exerciseIntensity / 100;
+			var maxHR = (220 - maxHrAge) * exerciseIntensity;
+			maxHR = Math.round(maxHR);
+			console.log(maxHR);
+			$("#maxHRresult").val(maxHR + " beats per minute");
+		} else {
+			$("#maxHRage").css("border", "1px solid red");
+			$("#exerciseIntensity").css("border", "1px solid red");
+		}
 	});
 
 });
