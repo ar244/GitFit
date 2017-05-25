@@ -28,12 +28,19 @@ $(document).ready(function () {
 
 	//Lean Body Mass Kg Calculator
 	$("#leanMassSubmit").on("click", function(event) {
-		event.preventDefault();
-		var leanMassWeight = parseInt($("#leanMassWeight").val().trim());
-		var fatPercentage = parseInt($("#fatPercentage").val().trim());
-		var leanMassKg = leanMassWeight - ((leanMassWeight * fatPercentage) / 100);
-		console.log(leanMassKg);
-		$("#leanMassResult").val(leanMassKg + " kilograms");
+		//adding the if statement for form validation. The number will be calculated only if an input was entered by the user.
+		if ($("#leanMassWeight").val().length > 0 && $("#fatPercentage").val().length > 0) {
+			event.preventDefault();
+			var leanMassWeight = parseInt($("#leanMassWeight").val().trim());
+			var fatPercentage = parseInt($("#fatPercentage").val().trim());
+			var leanMassKg = leanMassWeight - ((leanMassWeight * fatPercentage) / 100);
+			leanMassKg = Math.round(leanMassKg * 10) / 10;
+			console.log(leanMassKg);
+			$("#leanMassResult").val(leanMassKg + " kilograms");
+		} else {
+			$("#leanMassWeight").css("border", "1px solid red");
+			$("#fatPercentage").css("border", "1px solid red");
+		}
 	});
 
 	//Maximum Heart Rate Calculator
