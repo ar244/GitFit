@@ -34,8 +34,8 @@ body {
 	padding-top: 40px;
 }
 
-/*gitfit logo in header, would it be better to have an id or class?*/
-img {
+/*gitfit logo in header*/
+#logo {
 	box-sizing: border-box;
 	padding: 18px;
 }
@@ -106,8 +106,6 @@ footer {
 	color: black;
 }
 
-
-
 /***** main index page styles *****/
 
 #anatomy {
@@ -115,9 +113,8 @@ footer {
     margin: auto;
     padding: 0;
     border: 1px solid #c9c7c7;
-    width: 100%;
     border-radius: 10px;
-    margin: 0 0 10px 10px;
+    margin: 10px 20px 10px 20px;
 }
 
 #toggleBody {
@@ -137,8 +134,6 @@ footer {
 	background-color: #00B0EF;
 	display: inline;
 }
-
-
 
 /***** health/calculators page styles *****/
 
@@ -181,6 +176,9 @@ footer {
 }
 
 @media screen and (max-width: 640px) {
-
+	/*currently the nav items are disappearing at this width, fix that*/
+	#anatomy {
+	    margin: 0;
+	}
 }
 
