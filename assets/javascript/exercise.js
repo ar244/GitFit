@@ -81,6 +81,12 @@ $(document).ready(function () {
   	});
 
 	});
+
+  //toggle button function
+  $('#toggleBody').click(function() {
+      $('#anatomy').attr("src", "assets/images/female-body.jpg");  
+  });
+
 });
 
 
