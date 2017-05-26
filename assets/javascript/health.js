@@ -26,6 +26,9 @@ $(document).ready(function () {
 		}
 	});
 
+	// Body Fat % Calculator
+	// -----------------------------------------------
+
 	//Lean Body Mass Kg Calculator
 	$("#leanMassSubmit").on("click", function(event) {
 		//adding the if statement for form validation. The number will be calculated only if an input was entered by the user.
@@ -60,5 +63,12 @@ $(document).ready(function () {
 			$("#exerciseIntensity").css("border", "1px solid red");
 		}
 	});
+
+	// Daily Caloric Intake Calculator
+	// ----------------------------------------------
+
+
+	// Protein RDA Calculator
+	// ----------------------------------------------
 
 });
