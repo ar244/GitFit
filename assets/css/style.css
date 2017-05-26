@@ -164,7 +164,14 @@ footer {
 	margin-bottom: 20px;
 }
 
-
+.descHeader {
+	text-align: center;
+	background-color: #4a8eaf;
+	color:white;
+	margin: 0;
+	height:30px;
+	line-height:30px;
+}
 
 @media (max-width: 1024px) {
 
