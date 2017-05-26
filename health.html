@@ -44,23 +44,60 @@
       <div class="col-md-4">
         <div class="container" id="collapseArea">
           <!-- BMI button -->
-          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo" id="collapseButton">BMI Calculator</button>
-          <div id="demo" class="collapse">
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#bmi" id="collapseButton">BMI Calculator</button>
+          <div id="bmi" class="collapse">
             <!-- BMI form -->
             <form action="">
               <div class="form-group">
-                <input type="weight" class="form-control" id="weight" placeholder="weight in lb" name="email">
+                <input type="number" class="form-control" id="bmiWeight" placeholder="weight in kg" name="weight" required>
               </div>
               <div class="form-group">
-                <input type="height" class="form-control" id="height" placeholder="height in cm" name="height">
+                <input type="number" class="form-control" id="bmiHeight" placeholder="height in cm" name="height" required>
               </div>
-              <button type="button" class="btn btn-default" id="BMIsubmit">Submit</button>
+              <button type="submit" class="btn btn-default" id="bmiSubmit">Submit</button>
               <div class="form-group">
-                <input type="bmi" class="form-control" id="bmi" placeholder="Result" name="bmi">
+                <input type="text" class="form-control" id="bmiResult" placeholder="Result" name="bmi" value="">
               </div>
             </form>
           </div>
         </div>
+
+        <div class="container" id="collapseArea">
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#leanMass" id="collapseButton">Lean Body Mass Calculator</button>
+          <div id="leanMass" class="collapse">
+            <form action="">
+              <div class="form-group">
+                <input type="number" class="form-control" id="leanMassWeight" placeholder="weight in kg" name="weight" required>
+              </div>
+              <div class="form-group">
+                <input type="number" class="form-control" id="fatPercentage" placeholder="body fat %" name="height" required>
+              </div>
+              <button type="submit" class="btn btn-default" id="leanMassSubmit">Submit</button>
+              <div class="form-group">
+                <input type="text" class="form-control" id="leanMassResult" placeholder="Result" name="leanMass" value="">
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="container" id="collapseArea">
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#maxHR" id="collapseButton">Maximum Heart Rate Calculator</button>
+          <div id="maxHR" class="collapse">
+            <form action="">
+              <div class="form-group">
+                <input type="number" class="form-control" id="maxHRage" placeholder="age" name="age" required>
+              </div>
+              <div class="form-group">
+                <input type="number" class="form-control" id="exerciseIntensity" placeholder="exercise intensity %" name="level" required>
+              </div>
+              <button type="submit" class="btn btn-default" id="maxHRSubmit">Submit</button>
+              <div class="form-group">
+                <input type="text" class="form-control" id="maxHRresult" placeholder="Result" name="maxHR" value="">
+              </div>
+            </form>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -70,7 +107,9 @@
   <!-- bootstrap -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <!-- local javascript file -->
-  <script src="assets/javascript/app.js"></script>
+  <script src="assets/javascript/index.js"></script>
+  <script src="assets/javascript/health.js"></script>
+  <script src="assets/javascript/recipes.js"></script>
 </body>
 
 </html>
