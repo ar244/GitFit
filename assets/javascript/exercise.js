@@ -56,7 +56,7 @@ $(document).ready(function () {
           if (des) {
             $("#exerciseSpace").append("<button type='button' class='btn btn-info exercise-name' data-toggle='collapse' data-target='#"+idName+"'>"+name+"</button>");
             $("#exerciseSpace").append("<br><br>");
-            $("#exerciseSpace").append("<div id="+idName+" class='collapse' style='background-color: rgba(234, 231, 231, 0.82); border: 2px solid; padding: 20px; box-shadow: 10px;'></div>");
+            $("#exerciseSpace").append("<div id="+idName+" class='collapse collapse-div'></div>");
             
             $("#"+idName).append("<h5 class='descHeader'>Description</h5><br>");
             $("#"+idName).append("<p>"+des+"</p><br>");

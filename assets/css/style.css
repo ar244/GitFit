@@ -168,6 +168,15 @@ footer {
 	line-height:30px;
 }
 
+.collapse-div {
+	background-color: rgba(234, 231, 231, 0.82);
+	border: 2px solid; 
+	padding: 20px; 
+	box-shadow: 10px;
+	box-shadow: 5px 5px #a59d9d;
+	margin-bottom: 10px;
+}
+
 @media (max-width: 1024px) {
 
   /*Need something here*/ #_____{
