@@ -83,13 +83,28 @@ $(document).ready(function () {
 	});
 
   //toggle button function
-  $('#toggleBody').click(function() {
-      $('#anatomy').attr("src", "assets/images/female-body.jpg");  
+  //saves the button itself as a variable and applies three data attribute
+  var toggleBtn = $('.toggle.btn.btn-success');
+  toggleBtn.attr("data-male", "assets/images/male-body.jpg");
+  toggleBtn.attr("data-female", "assets/images/female-body.jpg");
+  toggleBtn.attr("data-state", "male");
+
+  $(toggleBtn).click(function (){
+
+    var state = $(this).attr("data-state");
+    //on click, if the data-state is male, change the image to the female image and change the data-state to female
+    //if the data-state is female, change the image to male and the data-state to male
+    if (state === "male"){
+      $('#anatomy').attr("src", "assets/images/female-body.jpg");
+      $(this).attr("data-state", "female");
+    } else {
+      $('#anatomy').attr("src", "assets/images/male-body.jpg");
+      $(this).attr("data-state", "male");
+    }
+
   });
 
 });
-
-
 
 
 
