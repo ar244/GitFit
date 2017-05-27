@@ -31,11 +31,5 @@ $(document).ready(function () {
 
 	});
 
-	
-	$('#toggleBody').click(function() {
-  
-  		$('#anatomy').attr("src", "assets/images/female_body.png");  
-	});
-
 
 });
