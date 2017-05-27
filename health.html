@@ -22,7 +22,7 @@
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="logoimage" href="index.html"><img src="assets/images/gitfit_logo.png" /></a>
+        <a href="index.html"><img id="logo" src="assets/images/gitfit_logo.png" /></a>
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -44,33 +44,196 @@
       <div class="col-md-4">
         <div class="container" id="collapseArea">
           <!-- BMI button -->
-          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo" id="collapseButton">BMI Calculator</button>
-          <div id="demo" class="collapse">
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#bmi" id="collapseButton">BMI Calculator</button>
+          <div id="bmi" class="collapse">
             <!-- BMI form -->
             <form action="">
               <div class="form-group">
-                <input type="weight" class="form-control" id="weight" placeholder="weight in lb" name="email">
+                <input type="number" class="form-control" id="bmiWeight" placeholder="weight in kg" name="weight" required>
               </div>
               <div class="form-group">
-                <input type="height" class="form-control" id="height" placeholder="height in cm" name="height">
+                <input type="number" class="form-control" id="bmiHeight" placeholder="height in cm" name="height" required>
               </div>
-              <button type="button" class="btn btn-default" id="BMIsubmit">Submit</button>
+              <button type="submit" class="btn btn-default" id="bmiSubmit">Submit</button>
               <div class="form-group">
-                <input type="bmi" class="form-control" id="bmi" placeholder="Result" name="bmi">
+                <input type="text" class="form-control" id="bmiResult" placeholder="Result" name="bmi" value="">
               </div>
             </form>
           </div>
         </div>
+
+        <!-- Body Fat Calculator -->
+        <div class="container" id="collapseArea">
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#bodyFat" id="collapseButton">Body Fat % Calculator</button>
+          <div id="bodyFat" class="collapse">
+            <form action="">
+              <!-- Weight -->
+              <div class="form-group">
+                <input type="number" class="form-control" id="bodyFatWeight" placeholder="weight in kg" name="weight">
+              </div>
+              <!-- Waist Circumference -->
+              <div class="form-group">
+                <input type="number" class="form-control" id="waistCir" placeholder="waist circumference in cm" name="waist">
+              </div>
+              <!-- Wrist Circumferece -->
+              <div class="form-group">
+                <input type="number" class="form-control" id="wristCir" placeholder="wrist circumference in cm" name="wrist">
+              </div>
+              <!-- Hip Circumference -->
+              <div class="form-group">
+                <input type="number" class="form-control" id="hipCir" placeholder="hip circumference in cm" name="hip">
+              </div>
+              <!-- Forearm Circumference -->
+              <div class="form-group">
+                <input type="number" class="form-control" id="forearm-cir" placeholder="forearm circumference in cm" name="forearm">
+              </div>
+              <!-- Submit Button -->
+              <button type="button" class="btn btn-default" id="bodyFatSubmit">Submit</button>
+              <div class="form-group">
+                <input type="text" class="form-control" id="bodyFatResult" placeholder="Result" name="bodyFat" value="">
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="container" id="collapseArea">
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#leanMass" id="collapseButton">Lean Body Mass Calculator</button>
+          <div id="leanMass" class="collapse">
+            <form action="">
+              <div class="form-group">
+                <input type="number" class="form-control" id="leanMassWeight" placeholder="weight in kg" name="weight" required>
+              </div>
+              <div class="form-group">
+                <input type="number" class="form-control" id="fatPercentage" placeholder="body fat %" name="height" required>
+              </div>
+              <button type="submit" class="btn btn-default" id="leanMassSubmit">Submit</button>
+              <div class="form-group">
+                <input type="text" class="form-control" id="leanMassResult" placeholder="Result" name="leanMass" value="">
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="container" id="collapseArea">
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#maxHR" id="collapseButton">Maximum Heart Rate Calculator</button>
+          <div id="maxHR" class="collapse">
+            <form action="">
+              <div class="form-group">
+                <input type="number" class="form-control" id="maxHRage" placeholder="age" name="age" required>
+              </div>
+              <div class="form-group">
+                <input type="number" class="form-control" id="exerciseIntensity" placeholder="exercise intensity %" name="level" required>
+              </div>
+              <button type="submit" class="btn btn-default" id="maxHRSubmit">Submit</button>
+              <div class="form-group">
+                <input type="text" class="form-control" id="maxHRresult" placeholder="Result" name="maxHR" value="">
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Caloric Intake Calculator -->
+        <div class="container" id="collapseArea">
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#caloricIntake" id="collapseButton">Daily Caloric Intake Calculator</button>
+          <div id="caloricIntake" class="collapse">
+            <form action="">
+              <!-- Gender -->
+              <div class="form-group">
+                <input type="radio" name="sex" id="sexFem" value="F" checked>
+                <label for="sexFem" class="inlineCaloric">Female</label>
+                <input type="radio" name="sex" id="sexMale" value="M">
+                <label for="sexMale" class="inlineCaloric">Male</label>
+              </div>
+              <!-- Age -->
+              <div class="form-group">
+                <input type="number" class="form-control" id="caloricAge" placeholder="age" name="age">
+              </div>
+              <!-- Weight -->
+              <div class="form-group">
+                <input type="number" class="form-control" id="caloricWeight" placeholder="weight in kg" name="weight">
+              </div>
+              <!-- Height -->
+              <div class="form-group">
+                <input type="number" class="form-control" id="caloricHeight" placeholder="height in cm" name="height">
+              </div>
+              <!-- Exercise Level -->
+              <div class="form-group">
+                <label for="sel1">Activity Level</label>
+                  <select class="form-control" id="caloricExercise">
+                      <option value=1.2>Little to no exercise</option>
+                      <option value=1.3 selected>3 times per week</option>
+                      <option value=1.4>4 times per week</option>
+                      <option value=1.5>5 times per week</option>
+                  </select>
+                <!-- <input type="number" class="form-control" id="caloricExercise" name="exercise"> -->
+              </div>
+              <!-- Submit Button -->
+              <button type="button" class="btn btn-default" id="caloricIntakeSubmit">Submit</button>
+              <div class="form-group">
+                <input type="text" class="form-control" id="caloricIntakeResult" placeholder="Result" name="caloricIntake" value="">
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Protein RDA Calculator -->
+        <div class="container" id="collapseArea">
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#protein" id="collapseButton">Protein RDA Calculator</button>
+          <div id="protein" class="collapse">
+            <form>
+              <!-- Gender -->
+              <div class="form-group">
+                <input type="radio" name="sex" id="sexFem" value="F" checked>
+                <label for="sexFem" class="inlineProtein">Female</label>
+                <input type="radio" name="sex" id="sexMale" value="M">
+                <label for="sexMale" class="inlineProtein">Male</label>
+              </div>
+              <!-- Age -->
+              <div class="form-group">
+                <input type="number" class="form-control" id="proteinAge" placeholder="age" name="age">
+              </div>
+              <!-- Weight -->
+              <div class="form-group">
+                <input type="number" class="form-control" id="proteinWeight" placeholder="weight in kg" name="weight">
+              </div>
+              <!-- Height -->
+              <div class="form-group">
+                <input type="number" class="form-control" id="proteinHeight" placeholder="height in cm" name="height">
+              </div>
+              <!-- Exercise Level -->
+              <div class="form-group">
+                <label for="sel2">Activity Level</label>
+                  <select class="form-control" id="proteinExercise">
+                      <option value=0>Little to no exercise</option>
+                      <option value=3 selected>3 times per week</option>
+                      <option value=4>4 times per week</option>
+                      <option value=5>5 times per week</option>
+                  </select>
+              </div>
+              <!-- Submit Button -->
+              <button type="button" class="btn btn-default" id="proteinSubmit">Submit</button>
+              <div class="form-group">
+                <input type="text" class="form-control" id="proteinResult" placeholder="Result" name="protein" value="">
+              </div>
+            </form>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
-  <footer></footer>
+
+  <br><footer>&copy;2017 Ebru Yucesar, Anuradha Ramachandra, Rachel Vaughan, Raquel Rodriguez, Jamie Gelo</footer>
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery.js"></script>
   <!-- bootstrap -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <!-- local javascript file -->
-  <script src="assets/javascript/app.js"></script>
+  <script src="assets/javascript/index.js"></script>
+  <script src="assets/javascript/health.js"></script>
+  <script src="assets/javascript/recipes.js"></script>
+  <script src="assets/javascript/exercise.js"></script>
+
 </body>
 
 </html>
