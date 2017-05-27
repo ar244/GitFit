@@ -128,6 +128,26 @@ footer {
 	font-size: 16px;
 }
 
+#muscleMenu {
+	width: 300px;
+	height: 46px;
+	background-color: #5cb85c;
+	border: 1px solid #4cae4c;
+	color: white;
+	font-size: 16px;
+	font-weight: bolder;
+}
+
+#muscleMenu:hover, #muscleMenu:focus {
+	background-color: #388938;
+}
+
+.muscleGroups {
+	width: 300px;
+	height: 30px;
+}
+
+
 /*results after "go" button clicked*/
 #glute {
 	margin: 0 10px 10px 0;
