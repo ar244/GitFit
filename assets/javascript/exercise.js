@@ -44,7 +44,7 @@ $(document).ready(function () {
   		}).done(function(response) {
   			console.log(response);
   			
-  			for (var i=0; i<Math.min(5, response.results.length); i++) {
+  			for (var i=0; i<Math.min(10, response.results.length); i++) {
   				var name = (response.results[i].name);
   				var des = (response.results[i].description);
           var secMuscles = response.results[i].muscles_secondary;
