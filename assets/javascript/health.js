@@ -170,4 +170,34 @@ $(document).ready(function () {
 		var proteinRDA = Math.round(proteinWeight * 0.8);
 		$("#proteinResult").val(proteinRDA + " g");
 	})
+
+	// Conversion Chart
+	// ----------------------------------------------
+	$("#convWeightSubmit").on("click", function() {
+		if ($("#conversionWeight").val().length > 0) {
+			event.preventDefault();
+			var convWeight = parseInt($("#conversionWeight").val().trim());
+			convWeight = convWeight * 0.453592;
+			convWeight = Math.round(convWeight * 10) / 10;
+			$("#convWeightResult").val(convWeight + " kg");
+		} else {
+			$("#conversionWeight").css("border", "1px solid red");
+		}
+	});
+
+	$("#convHeightSubmit").on("click", function() {
+		if ($("#conversionHeightFt").val().length > 0 && $("#conversionHeightIn").val().length > 0) {
+			event.preventDefault();
+			var convHeightFt = parseInt($("#conversionHeightFt").val().trim());
+			var feetConvertedCm = convHeightFt * 30.48;
+			var convHeightIn = parseInt($("#conversionHeightIn").val().trim());
+			var inchConvertedCm = convHeightIn * 2.54;
+			var convertedHeight = feetConvertedCm + inchConvertedCm;
+			convertedHeight = Math.round(convertedHeight);
+			$("#convHeightResult").val(convertedHeight + " cm");
+		} else {
+			$("#conversionHeightFt").css("border", "1px solid red");
+			$("#conversionHeightIn").css("border", "1px solid red");
+		}
+	});
 });
