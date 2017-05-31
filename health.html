@@ -219,6 +219,36 @@
           </div>
         </div>
 
+        <!-- Imperial to Metric Conversion Chart -->
+        <div class="container" id="collapseArea">
+          <!-- Conversion button -->
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#conversion" id="collapseButton">Convert Imperial Units to Metric Units</button>
+          <div id="conversion" class="collapse">
+            <!-- Conversion form -->
+            <form action="">
+              <div class="form-group">
+                <input type="number" class="form-control" id="conversionWeight" placeholder="weight in lbs" name="weight" required>
+              </div>
+              <button type="submit" class="btn btn-default" id="convWeightSubmit">Convert to Kg</button>
+              <div class="form-group">
+                <input type="text" class="form-control" id="convWeightResult" placeholder="Result" name="conversion" value="">
+              </div>
+              </form>
+              <form action="">
+              <div class="form-group">
+                <input type="number" class="form-control" id="conversionHeightFt" placeholder="feet" name="height feet" required>
+              </div>
+              <div class="form-group">
+                <input type="number" class="form-control" id="conversionHeightIn" placeholder="inches" name="height inches" required>
+              </div>
+              <button type="submit" class="btn btn-default" id="convHeightSubmit">Convert to Cm</button>
+              <div class="form-group">
+                <input type="text" class="form-control" id="convHeightResult" placeholder="Result" name="conversion" value="">
+              </div>
+            </form>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
