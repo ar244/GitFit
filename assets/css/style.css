@@ -118,6 +118,10 @@ footer {
     background-color: #E8F9FF;
 }
 
+area {
+	outline: #2b842b solid 14px;
+}
+
 #toggleBody {
     text-align: center;
 }
@@ -147,7 +151,6 @@ footer {
 	width: 300px;
 	height: 30px;
 }
-
 
 /*results after "go" button clicked*/
 #glute {
