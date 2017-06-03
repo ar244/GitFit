@@ -17,67 +17,68 @@ $(document).ready(function () {
 	var queryURL = "";
 
 	
-    // Take muscle name and query and display exercises
-    function displayExercise(muscle) {
-      muscleIndex = parseInt(muscleName.indexOf(muscle)) + 1;
+  // Take muscle name and query and display exercises
+  function displayExercise(muscle) {
+    
+    queryURL = "";
+    $("#exerciseSpace").empty();
+    muscleIndex = parseInt(muscleName.indexOf(muscle)) + 1;
 
-    	queryURL = queryURLBefore +muscleIndex;
+  	queryURL = queryURLBefore +muscleIndex;
 
-      	
-  		console.log(queryURL);
+    	
+		console.log(queryURL);
 
-  		$.ajax({
-  			crossDomain: false,
-  	    	url: queryURL,
-  	    	method: "GET"
-    		}).done(function(response) {
-    			console.log(response);
-    			
-    			for (var i=0; i<Math.min(10, response.results.length); i++) {
-    				var name = (response.results[i].name);
-    				var des = (response.results[i].description);
-            var secMuscles = response.results[i].muscles_secondary;
-            var equipment = response.results[i].equipment;
-            var idName = "exercise"+(i+1);
+		$.ajax({
+			crossDomain: false,
+	    	url: queryURL,
+	    	method: "GET"
+  		}).done(function(response) {
+  			console.log(response);
+  			
+  			for (var i=0; i<Math.min(10, response.results.length); i++) {
+  				var name = (response.results[i].name);
+  				var des = (response.results[i].description);
+          var secMuscles = response.results[i].muscles_secondary;
+          var equipment = response.results[i].equipment;
+          var idName = "exercise"+(i+1);
 
-            // Display exercise info 
-            // Below if is needed since some of the exercises have no description
-            if (des) {
-              $("#exerciseSpace").append("<button type='button' class='btn btn-info exercise-name' data-toggle='collapse' data-target='#"+idName+"'>"+name+"</button>");
-              $("#exerciseSpace").append("<br><br>");
-              $("#exerciseSpace").append("<div id="+idName+" class='collapse collapse-div'></div>");
-              
-              $("#"+idName).append("<h5 class='descHeader'>Description</h5><br>");
-              $("#"+idName).append("<p>"+des+"</p><br>");
-              
-              if (secMuscles.length > 0) {
-                $("#"+idName).append("<h5 class='descHeader'>Also works</h5><br>");
-                for (var j=0; j<secMuscles.length; j++) {
-                  $("#"+idName).append("<p>"+muscleName[secMuscles[j]-1]+"</p>");
-                }
+          // Display exercise info 
+          // Below if is needed since some of the exercises have no description
+          if (des) {
+            $("#exerciseSpace").append("<button type='button' class='btn btn-info exercise-name' data-toggle='collapse' data-target='#"+idName+"'>"+name+"</button>");
+            $("#exerciseSpace").append("<br><br>");
+            $("#exerciseSpace").append("<div id="+idName+" class='collapse collapse-div'></div>");
+            
+            $("#"+idName).append("<h5 class='descHeader'>Description</h5><br>");
+            $("#"+idName).append("<p>"+des+"</p><br>");
+            
+            if (secMuscles.length > 0) {
+              $("#"+idName).append("<h5 class='descHeader'>Also works</h5><br>");
+              for (var j=0; j<secMuscles.length; j++) {
+                $("#"+idName).append("<p>"+muscleName[secMuscles[j]-1]+"</p>");
               }
+            }
 
-              if (equipment.length > 0) {
-                $("#"+idName).append("<br><h5 class='descHeader'>Equipment</h5><br>");
-                for (var j=0; j<equipment.length; j++) {
-                  $("#"+idName).append("<p>"+equipmentName[equipment[j]-1]+"</p>");
-                }
+            if (equipment.length > 0) {
+              $("#"+idName).append("<br><h5 class='descHeader'>Equipment</h5><br>");
+              for (var j=0; j<equipment.length; j++) {
+                $("#"+idName).append("<p>"+equipmentName[equipment[j]-1]+"</p>");
               }
-    			 } // if (des)
-        }
-    			
-    	});
+            }
+  			 } // if (des)
+      }
+  			
+  	});
 
-  	}
+	}
 
   // When MuscleGroup button is clicked
   $("#menu li a").on('click', function(){
     event.preventDefault();
     $('#muscleMenu').text($(this).text());
 
-    queryURL = "";
-
-    $("#exerciseSpace").empty();
+    
 
     muscle = $(this).text();
     displayExercise(muscle);
