@@ -206,6 +206,75 @@ area {
 	text-align: center;
 }
 
+
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 500px;
+    height: 410px;
+    margin: auto;
+    text-align: center;
+    background-color: #7bb5d8;
+    margin-bottom: 10px;
+
+}
+
+.image {
+	margin-top: 10px;
+	margin-bottom: 12px;
+	width: 60%;
+	height: 50%;
+}
+
+.recipeContainer {
+	height: 120px;
+	background-color: #7bb5d8;
+	border: none;
+}
+.label {
+	color: white;
+	font-size: 20px;
+	padding-top: 12px;
+	padding-left:10px;
+	padding-right:10px;
+	word-wrap: break-word;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+.calories {
+	color:white;
+	font-size: 20px;
+	margin-top: 12px;
+}
+
+.link {
+	text-decoration: none;
+	color:white;
+	font-size: 20px;
+	display:block;
+	width: 100%;
+	word-wrap: break-word;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+.w3-display-left{
+	position:absolute;
+	top:50%;
+	left:0%;
+	transform:translate(0%,-50%);
+	-ms-transform:translate(-0%,-50%)
+}
+
+.w3-display-right{
+	position:absolute;
+	top:50%;
+	right:0%;
+	transform:translate(0%,-50%);
+	-ms-transform:translate(0%,-50%)
+}
+
 @media (max-width: 1024px) {
 
   /*Need something here*/ #_____{
