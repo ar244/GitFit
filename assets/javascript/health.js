@@ -43,7 +43,7 @@ $(document).ready(function () {
 	// Body Fat % Calculator
 	// Formula from: http://www.bmi-calculator.net/body-fat-calculator/body-fat-formula.php
 	// -----------------------------------------------
-	$("#bodyFatSubmit").on("click", function() {
+	$("#bodyFatSubmit").on("click", function(event) {
 		// Operate only if all inputs are added
 		if ($("#bodyFatWeight").val().length > 0 && $("#waistCir").val().length > 0 && $("#wristCir").val().length > 0 && $("#hipCir").val().length > 0 && $("#forearm-cir").val().length > 0) {
 			event.preventDefault();
@@ -139,47 +139,46 @@ $(document).ready(function () {
 	// Mifflin-St. Jeor Equation - http://www.livestrong.com/article/178764-caloric-intake-formula/ 
 	// The physical activity factors are 1.2 for sedentary people, 1.3 for moderately active people and 1.4 for active people.
 
-	$("#caloricIntakeSubmit").on("click", function(){
-		//if ($("#caloricAge").val().length > 0 && $("#caloricWeight").val().length > 0 && $("#caloricHeight").val().lenght > 0) {
+	$("#caloricIntakeSubmit").on("click", function(event){
+		// Form validation
+		if ($("#caloricAge").val().length > 0 && $("#caloricWeight").val().length > 0 && $("#caloricHeight").val().length > 0) {
 		event.preventDefault();
 		// Grabbing variables
+		var radioValue 		= $("input[type='radio']:checked").val();
 		var caloricAge 		= parseInt($("#caloricAge").val().trim());
 		var caloricWeight 	= parseInt($("#caloricWeight").val().trim());
 		var caloricHeight 	= parseInt($("#caloricHeight").val().trim());
-		var caloricExercise = parseInt($("#caloricExercise").val()); // Does not need trim since there is already a value from the HTML
+		var caloricExercise = $("#caloricExercise").val(); // Does not need trim since there is already a value from the HTML
 
+		console.log(radioValue);
 		console.log(caloricAge);
 		console.log(caloricWeight);
 		console.log(caloricHeight);
 		console.log(caloricExercise);
 
+		// If female is selected
+		if (radioValue === "F") {
 		var caloricIntake = (10 * caloricWeight) + (6.25 * caloricHeight) - (5 * caloricAge) - 161;
 		caloricIntake 	  = caloricIntake * caloricExercise;
-
 		$("#caloricIntakeResult").val(caloricIntake + " calories");
-		//show results to results data window
+		// Show results to results data window
 		$("cal-intake-results").show().val("Caloric Intake: " + caloricIntake + " cal");
+		} 
+		  // If male is selected
+		  if (radioValue === "M") {
+		  var caloricIntake = (10 * caloricWeight) + (6.25 * caloricHeight) - (5 * caloricAge) + 5;
+		  caloricIntake 	= caloricIntake * caloricExercise;
+		  $("#caloricIntakeResult").val(caloricIntake + " calories");
+		  // Show results to results data window
+		  $("cal-intake-results").show().val("Caloric Intake: " + caloricIntake + " cal");
+		  }
 
-		// // If female is selected
-		// if (document.getElementById("sexFem").checked) {
-		// // Equation
-		// var caloricIntake = (10 * caloricWeight) + (6.25 * caloricHeight) - (5 * caloricAge) - 161;
-		// caloricIntake 	  = caloricIntake * caloricExercise;
-		// $("#caloricIntakeResult").val(caloricIntake + "calories");
-		// } 
-		//   // If male is selected
-		//   else if (document.getElementById("sexMale").checked) {
-		//   var caloricIntake = (10 * caloricWeight) + (6.25 * caloricHeight) - (5 * caloricAge) + 5;
-		//   caloricIntake 	= caloricIntake * caloricExercise;
-		//   $("#caloricIntakeResult").val(caloricIntake + "calories");
-
-		// } else {
-		//   $("#caloricAge").css("border", "1px solid red");
-		//   $("#caloricWeight").css("border", "1px solid red");
-		//   $("#caloricHeight").css("border", "1px solid red");
-		//   $("#caloricExercise").css("border", "1px solid red");	
-		// }
-	//}
+		}else {
+		  $("#caloricAge").css("border", "1px solid red");
+		  $("#caloricWeight").css("border", "1px solid red");
+		  $("#caloricHeight").css("border", "1px solid red");
+		  $("#caloricExercise").css("border", "1px solid red");	
+	}
 });
 
 
