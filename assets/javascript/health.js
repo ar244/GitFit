@@ -125,7 +125,7 @@ $(document).ready(function () {
 
 			console.log(leanMassKg);
 
-			$("#leanMassResult").val(leanMassKg + " kilograms");
+			$("#leanMassResult").val(leanMassKg + " kg");
 
 			//show results in results data window
 			$("#lean-mass-results").show().val("Lean Mass: " + leanMassKg + " kg");
@@ -199,7 +199,7 @@ $(document).ready(function () {
 			caloricIntake = Math.round(caloricIntake);
 			$("#caloricIntakeResult").val(caloricIntake + " calories");
 			// Show results to results data window
-			$("cal-intake-results").show().val("Caloric Intake: " + caloricIntake + " cal");
+			$("#cal-intake-results").show().val("Caloric Intake: " + caloricIntake + " cal");
 		} 
 		  // If male is selected
 		  if (radioValue === "M") {
@@ -208,7 +208,7 @@ $(document).ready(function () {
 			  caloricIntake = Math.round(caloricIntake);
 			  $("#caloricIntakeResult").val(caloricIntake + " calories");
 			  // Show results to results data window
-			  $("cal-intake-results").show().val("Caloric Intake: " + caloricIntake + " cal");
+			  $("#cal-intake-results").show().val("Caloric Intake: " + caloricIntake + " cal");
 		  }
 
 		}else {
@@ -245,7 +245,7 @@ $(document).ready(function () {
 			var proteinRDA = Math.round(proteinWeight * 0.8);
 			$("#proteinResult").val(proteinRDA + " g");
 			//show results in results data window
-			$("protein-results").show().val("Protein: " + proteinRDA + " g");	
+			$("#protein-results").show().val("Protein: " + proteinRDA + " g");	
 			//object to save data
 		} else {
 			 $("#proteinWeight").css("border", "1px solid red");
