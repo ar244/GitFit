@@ -230,14 +230,14 @@ $(document).ready(function () {
 	$("#proteinSubmit").on("click", function() {
 		event.preventDefault();
 		// Grabbing variables
-		var proteinAge 	  = parseInt($("#proteinAge").val().trim());
+		// var proteinAge 	  = parseInt($("#proteinAge").val().trim());
 		var proteinWeight = parseInt($("#proteinWeight").val().trim());
-		var proteinHeight = parseInt($("#proteinHeight").val().trim());
-		var proteinExercise = parseInt($("#proteinExercise").val());
+		// var proteinHeight = parseInt($("#proteinHeight").val().trim());
+		// var proteinExercise = parseInt($("#proteinExercise").val());
 
-		console.log(proteinAge);
-		console.log(proteinWeight);
-		console.log(proteinHeight);
+		// console.log(proteinAge);
+		// console.log(proteinWeight);
+		// console.log(proteinHeight);
 
 		var proteinRDA = Math.round(proteinWeight * 0.8);
 		$("#proteinResult").val(proteinRDA + " g");
