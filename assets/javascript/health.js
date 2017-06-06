@@ -252,20 +252,29 @@ $(document).ready(function () {
 	});
 
 	// Conversion Chart
-	// ----------------------------------------------
+	// weight conversion
 	$("#convWeightSubmit").on("click", function() {
 		if ($("#conversionWeight").val().length > 0) {
-			event.preventDefault();
-			var convWeight = parseInt($("#conversionWeight").val().trim());
-			convWeight = convWeight * 0.453592;
-			convWeight = Math.round(convWeight * 10) / 10;
-
-			$("#convWeightResult").val(convWeight + " kg");
+			var radioValue = $("input[type='radio']:checked").val();
+				if (radioValue === "Kg") {
+					event.preventDefault();
+					var convWeight = parseInt($("#conversionWeight").val().trim());
+					convWeight = convWeight * 0.453592;
+					convWeight = Math.round(convWeight * 10) / 10;
+					$("#convWeightResult").val(convWeight + " kg");
+				} if (radioValue === "Lbs") {
+					event.preventDefault();
+					var convWeight = parseInt($("#conversionWeight").val().trim());
+					convWeight = convWeight * 2.20462;
+					convWeight = Math.round(convWeight * 10) / 10;
+					$("#convWeightResult").val(convWeight + " lbs");
+				}
 		} else {
 			$("#conversionWeight").css("border", "1px solid red");
 		}
 	});
 
+	// height conversion
 	$("#convHeightSubmit").on("click", function() {
 		if ($("#conversionHeightFt").val().length > 0 && $("#conversionHeightIn").val().length > 0) {
 			event.preventDefault();
@@ -275,7 +284,6 @@ $(document).ready(function () {
 			var inchConvertedCm = convHeightIn * 2.54;
 			var convertedHeight = feetConvertedCm + inchConvertedCm;
 			convertedHeight = Math.round(convertedHeight);
-
 			$("#convHeightResult").val(convertedHeight + " cm");
 		} else {
 			$("#conversionHeightFt").css("border", "1px solid red");
