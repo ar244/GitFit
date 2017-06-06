@@ -117,6 +117,10 @@ footer {
     margin: 10px 20px 10px 20px;
 }
 
+area {
+	outline: 16px solid #4cae4c;
+}
+
 #toggleBody {
     text-align: center;
 }
