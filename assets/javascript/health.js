@@ -1,10 +1,20 @@
+//with the append that takes care of having things appear, but if they click for results in the same calculator more than once, those appear also
+$("#bmi-results").hide();
+$("#body-fat-results").hide();
+$("#lean-mass-results").hide();
+$("#heart-rate-results").hide();
+$("#cal-intake-results").hide();
+$("#protein-results").hide();
+
 $(document).ready(function () {
 
 	//BMI calculator
 	$("#bmiSubmit").on("click", function(event) {
+
 		//adding the if statement for form validation. The number will be calculated only if an input was entered by the user.
 		if ($("#bmiWeight").val().length > 0 && $("#bmiHeight").val().length > 0) {
 				event.preventDefault();
+
 				//grab the value from the input field and convert it into an integer
 				var bmiWeight = parseInt($("#bmiWeight").val().trim());
 				var bmiHeight = parseInt($("#bmiHeight").val().trim());
@@ -18,6 +28,10 @@ $(document).ready(function () {
 				bmi = Math.round(bmi * 10) / 10;
 				//write the result to the screen
 				$("#bmiResult").val(bmi);
+
+				//show results in the results data window
+				$("#bmi-results").show().val("BMI: " + bmi);
+
 				//testing
 				console.log(bmi);
 		} else {
@@ -63,6 +77,9 @@ $(document).ready(function () {
 			var bodyFatPercentage = (Math.round((bodyFat * 100) / bodyFatWeight) + "%");
 			// Reflect Result
 			$("#bodyFatResult").val(bodyFatPercentage); 
+
+			//show results in results data window
+			$("#body-fat-results").show().val("Body Fat Percentage: " + bodyFatPercentage);
 		} else {
 			$("#bodyFatWeight").css("border", "1px solid red");
 			$("#waistCir").css("border", "1px solid red");
@@ -81,8 +98,13 @@ $(document).ready(function () {
 			var fatPercentage = parseInt($("#fatPercentage").val().trim());
 			var leanMassKg = leanMassWeight - ((leanMassWeight * fatPercentage) / 100);
 			leanMassKg = Math.round(leanMassKg * 10) / 10;
+
 			console.log(leanMassKg);
+
 			$("#leanMassResult").val(leanMassKg + " kilograms");
+
+			//show results in results data window
+			$("#lean-mass-results").show().val("Lean Mass: " + leanMassKg + " kg");
 		} else {
 			$("#leanMassWeight").css("border", "1px solid red");
 			$("#fatPercentage").css("border", "1px solid red");
@@ -99,8 +121,13 @@ $(document).ready(function () {
 			exerciseIntensity = exerciseIntensity / 100;
 			var maxHR = (220 - maxHrAge) * exerciseIntensity;
 			maxHR = Math.round(maxHR);
+
 			console.log(maxHR);
+
 			$("#maxHRresult").val(maxHR + " beats per minute");
+
+			//show results in results data window
+			$("#heart-rate-results").show().val("Max HR: " + maxHR + " bpm");
 		} else {
 			$("#maxHRage").css("border", "1px solid red");
 			$("#exerciseIntensity").css("border", "1px solid red");
@@ -128,7 +155,10 @@ $(document).ready(function () {
 
 		var caloricIntake = (10 * caloricWeight) + (6.25 * caloricHeight) - (5 * caloricAge) - 161;
 		caloricIntake 	  = caloricIntake * caloricExercise;
+
 		$("#caloricIntakeResult").val(caloricIntake + " calories");
+		//show results to results data window
+		$("cal-intake-results").show().val("Caloric Intake: " + caloricIntake + " cal");
 
 		// // If female is selected
 		// if (document.getElementById("sexFem").checked) {
@@ -169,7 +199,9 @@ $(document).ready(function () {
 
 		var proteinRDA = Math.round(proteinWeight * 0.8);
 		$("#proteinResult").val(proteinRDA + " g");
-	})
+		//show results in results data window
+		$("protein-results").show().val("Protein: " + proteinRDA + " g");	
+	});
 
 	// Conversion Chart
 	// ----------------------------------------------
@@ -179,6 +211,7 @@ $(document).ready(function () {
 			var convWeight = parseInt($("#conversionWeight").val().trim());
 			convWeight = convWeight * 0.453592;
 			convWeight = Math.round(convWeight * 10) / 10;
+
 			$("#convWeightResult").val(convWeight + " kg");
 		} else {
 			$("#conversionWeight").css("border", "1px solid red");
@@ -194,6 +227,7 @@ $(document).ready(function () {
 			var inchConvertedCm = convHeightIn * 2.54;
 			var convertedHeight = feetConvertedCm + inchConvertedCm;
 			convertedHeight = Math.round(convertedHeight);
+
 			$("#convHeightResult").val(convertedHeight + " cm");
 		} else {
 			$("#conversionHeightFt").css("border", "1px solid red");

@@ -56,7 +56,7 @@
               </div>
               <button type="submit" class="btn btn-default" id="bmiSubmit">Submit</button>
               <div class="form-group">
-                <input type="text" class="form-control" id="bmiResult" placeholder="Result" name="bmi" value="">
+                <input type="text" class="form-control" id="bmiResult" placeholder="result" name="bmi" value="">
               </div>
             </form>
           </div>
@@ -90,7 +90,7 @@
               <!-- Submit Button -->
               <button type="submit" class="btn btn-default" id="bodyFatSubmit">Submit</button>
               <div class="form-group">
-                <input type="text" class="form-control" id="bodyFatResult" placeholder="Result" name="bodyFat" value="">
+                <input type="text" class="form-control" id="bodyFatResult" placeholder="result" name="bodyFat" value="">
               </div>
             </form>
           </div>
@@ -113,9 +113,11 @@
             </form>
           </div>
         </div>
+      </div>
 
+      <div class="col-md-4">
         <div class="container" id="collapseArea">
-          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#maxHR" id="collapseButton">Maximum Heart Rate Calculator</button>
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#maxHR" id="collapseButton">Max Heart Rate Calculator</button>
           <div id="maxHR" class="collapse">
             <form action="">
               <div class="form-group">
@@ -131,6 +133,7 @@
             </form>
           </div>
         </div>
+
 
         <!-- Caloric Intake Calculator -->
         <div class="container" id="collapseArea">
@@ -170,7 +173,7 @@
               <!-- Submit Button -->
               <button type="submit" class="btn btn-default" id="caloricIntakeSubmit">Submit</button>
               <div class="form-group">
-                <input type="text" class="form-control" id="caloricIntakeResult" placeholder="Result" name="caloricIntake" value="">
+                <input type="text" class="form-control" id="caloricIntakeResult" placeholder="result" name="caloricIntake" value="">
               </div>
             </form>
           </div>
@@ -213,23 +216,25 @@
               <!-- Submit Button -->
               <button type="submit" class="btn btn-default" id="proteinSubmit">Submit</button>
               <div class="form-group">
-                <input type="text" class="form-control" id="proteinResult" placeholder="Result" name="protein" value="">
+                <input type="text" class="form-control" id="proteinResult" placeholder="result" name="protein" value="">
               </div>
             </form>
           </div>
         </div>
+      </div>  
 
+      <div class="col-md-4">
         <!-- Imperial to Metric Conversion Chart -->
         <div class="container" id="collapseArea">
           <!-- Conversion button -->
-          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#conversion" id="collapseButton">Convert Imperial Units to Metric Units</button>
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#conversion" id="collapseButton">Convert Imperial to Metric Units</button>
           <div id="conversion" class="collapse">
             <!-- Conversion form -->
             <form action="">
               <div class="form-group">
                 <input type="number" class="form-control" id="conversionWeight" placeholder="weight in lbs" name="weight" required>
               </div>
-              <button type="submit" class="btn btn-default" id="convWeightSubmit">Convert to Kg</button>
+              <button type="submit" class="btn btn-default" id="convWeightSubmit">Convert to kg</button>
               <div class="form-group">
                 <input type="text" class="form-control" id="convWeightResult" placeholder="Result" name="conversion" value="">
               </div>
@@ -241,17 +246,36 @@
               <div class="form-group">
                 <input type="number" class="form-control" id="conversionHeightIn" placeholder="inches" name="height inches" required>
               </div>
-              <button type="submit" class="btn btn-default" id="convHeightSubmit">Convert to Cm</button>
+              <button type="submit" class="btn btn-default" id="convHeightSubmit">Convert to cm</button>
               <div class="form-group">
                 <input type="text" class="form-control" id="convHeightResult" placeholder="Result" name="conversion" value="">
               </div>
             </form>
           </div>
         </div>
+  
+        <!-- div to hold all results as user gets results from calculator -->
+        <!-- no form, dynamically generated divs:
+        <div class="container" id="result-info">
+          <h3>Results Data</h3>
+          <div id="show-results"></div>
+        </div> -->
+        <div class="container" id="result-info">
+          <h3>Overall Results</h3>
+          <!-- <div id="show-results"></div> -->
+          <input type="text" class="form-control" id="bmi-results" placeholder="" name="bmi" value="">
+          <input type="text" class="form-control" id="body-fat-results" placeholder="" name="body-fat" value="">
+          <input type="text" class="form-control" id="lean-mass-results" placeholder="" name="lean-mass" value="">
+          <input type="text" class="form-control" id="heart-rate-results" placeholder="" name="heart-rate" value="">
+          <input type="text" class="form-control" id="cal-intake-results" placeholder="" name="cal-intake" value="">
+          <input type="text" class="form-control" id="protein-results" placeholder="" name="protein" value="">
+        </div>
+      </div>
 
       </div>
     </div>
   </div>
+  
 
   <br><footer>&copy;2017 Ebru Yucesar, Anuradha Ramachandra, Rachel Vaughan, Raquel Rodriguez, Jamie Gelo</footer>
   <!-- jQuery -->
