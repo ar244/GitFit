@@ -6,6 +6,20 @@ $("#heart-rate-results").hide();
 $("#cal-intake-results").hide();
 $("#protein-results").hide();
 
+// Initialize Firebase
+var config = {
+  apiKey: "AIzaSyB_JQagylAT6I5kjHi0lx34v_PTvXMG8Dw",
+  authDomain: "gitfit-58bb2.firebaseapp.com",
+  databaseURL: "https://gitfit-58bb2.firebaseio.com",
+  projectId: "gitfit-58bb2",
+  storageBucket: "gitfit-58bb2.appspot.com",
+  messagingSenderId: "536732614585"
+};
+firebase.initializeApp(config);
+
+//set variable to refer to database
+var database = firebase.database();
+
 $(document).ready(function () {
 
 	//BMI calculator
@@ -13,27 +27,30 @@ $(document).ready(function () {
 
 		//adding the if statement for form validation. The number will be calculated only if an input was entered by the user.
 		if ($("#bmiWeight").val().length > 0 && $("#bmiHeight").val().length > 0) {
-				event.preventDefault();
+			event.preventDefault();
 
-				//grab the value from the input field and convert it into an integer
-				var bmiWeight = parseInt($("#bmiWeight").val().trim());
-				var bmiHeight = parseInt($("#bmiHeight").val().trim());
-				//convert the height into meters
-				bmiHeight = bmiHeight / 100;
-				//the logic for the calculation
-				var bmi = bmiWeight / (bmiHeight * bmiHeight);
-				//testing
-				console.log(bmi);
-				//end up only with one decimal
-				bmi = Math.round(bmi * 10) / 10;
-				//write the result to the screen
-				$("#bmiResult").val(bmi);
+			//grab the value from the input field and convert it into an integer
+			var bmiWeight = parseInt($("#bmiWeight").val().trim());
+			var bmiHeight = parseInt($("#bmiHeight").val().trim());
+			//convert the height into meters
+			bmiHeight = bmiHeight / 100;
+			//the logic for the calculation
+			var bmi = bmiWeight / (bmiHeight * bmiHeight);
+			//end up only with one decimal
+			bmi = Math.round(bmi * 10) / 10;
+			//write the result to the screen
+			$("#bmiResult").val(bmi);
 
-				//show results in the results data window
-				$("#bmi-results").show().val("BMI: " + bmi);
+			//show results in the results data window
+			$("#bmi-results").show().val("BMI: " + bmi);
 
-				//testing
-				console.log(bmi);
+			//object for holding bmi data
+			var bmiData = {
+			 bmiObj: bmi
+			}
+			//console.log(bmiData);
+			//push to database
+			database.ref().push(bmiData);
 		} else {
 			$("#bmiWeight").css("border", "1px solid red");
 			$("#bmiHeight").css("border", "1px solid red");
@@ -80,6 +97,13 @@ $(document).ready(function () {
 
 			//show results in results data window
 			$("#body-fat-results").show().val("Body Fat Percentage: " + bodyFatPercentage);
+
+			//object for holding data
+			var bodyFatData = {
+				bodyFatObj: bodyFatPercentage
+			}
+			//push to database
+			database.ref().push(bodyFatData);
 		} else {
 			$("#bodyFatWeight").css("border", "1px solid red");
 			$("#waistCir").css("border", "1px solid red");
@@ -105,6 +129,12 @@ $(document).ready(function () {
 
 			//show results in results data window
 			$("#lean-mass-results").show().val("Lean Mass: " + leanMassKg + " kg");
+			//object to hold data
+			var leanMassData = {
+				leanMassObj: leanMassKg
+			}
+			//push to database
+			database.ref().push(leanMassData);
 		} else {
 			$("#leanMassWeight").css("border", "1px solid red");
 			$("#fatPercentage").css("border", "1px solid red");
@@ -128,6 +158,12 @@ $(document).ready(function () {
 
 			//show results in results data window
 			$("#heart-rate-results").show().val("Max HR: " + maxHR + " bpm");
+			//object to hold data
+			var maxHRData = {
+				maxHRObj: maxHR
+			}
+			//push to database
+			database.ref().push(maxHRData);
 		} else {
 			$("#maxHRage").css("border", "1px solid red");
 			$("#exerciseIntensity").css("border", "1px solid red");
@@ -160,26 +196,12 @@ $(document).ready(function () {
 		//show results to results data window
 		$("cal-intake-results").show().val("Caloric Intake: " + caloricIntake + " cal");
 
-		// // If female is selected
-		// if (document.getElementById("sexFem").checked) {
-		// // Equation
-		// var caloricIntake = (10 * caloricWeight) + (6.25 * caloricHeight) - (5 * caloricAge) - 161;
-		// caloricIntake 	  = caloricIntake * caloricExercise;
-		// $("#caloricIntakeResult").val(caloricIntake + "calories");
-		// } 
-		//   // If male is selected
-		//   else if (document.getElementById("sexMale").checked) {
-		//   var caloricIntake = (10 * caloricWeight) + (6.25 * caloricHeight) - (5 * caloricAge) + 5;
-		//   caloricIntake 	= caloricIntake * caloricExercise;
-		//   $("#caloricIntakeResult").val(caloricIntake + "calories");
-
-		// } else {
-		//   $("#caloricAge").css("border", "1px solid red");
-		//   $("#caloricWeight").css("border", "1px solid red");
-		//   $("#caloricHeight").css("border", "1px solid red");
-		//   $("#caloricExercise").css("border", "1px solid red");	
-		// }
-	//}
+		//object to save data
+		var caloricIntakeData = {
+			caloricIntakeObj: caloricIntake
+		}
+		//push to database
+		database.ref().push(caloricIntakeData);
 });
 
 
@@ -201,6 +223,12 @@ $(document).ready(function () {
 		$("#proteinResult").val(proteinRDA + " g");
 		//show results in results data window
 		$("protein-results").show().val("Protein: " + proteinRDA + " g");	
+		//object to save data
+		var proteinData = {
+			proteinObj: proteinRDA
+		}
+		//push to database
+		database.ref().push(proteinData);
 	});
 
 	// Conversion Chart
