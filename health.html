@@ -108,7 +108,7 @@
               </div>
               <button type="submit" class="btn btn-default" id="leanMassSubmit">Submit</button>
               <div class="form-group">
-                <input type="text" class="form-control" id="leanMassResult" placeholder="Result" name="leanMass" value="">
+                <input type="text" class="form-control" id="leanMassResult" placeholder="result" name="leanMass" value="">
               </div>
             </form>
           </div>
@@ -128,7 +128,7 @@
               </div>
               <button type="submit" class="btn btn-default" id="maxHRSubmit">Submit</button>
               <div class="form-group">
-                <input type="text" class="form-control" id="maxHRresult" placeholder="Result" name="maxHR" value="">
+                <input type="text" class="form-control" id="maxHRresult" placeholder="result" name="maxHR" value="">
               </div>
             </form>
           </div>
@@ -202,20 +202,26 @@
         <!-- Imperial to Metric Conversion Chart -->
         <div class="container" id="collapseArea">
           <!-- Conversion button -->
-          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#conversion" id="collapseButton">Convert Imperial to Metric Units</button>
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#conversion" id="collapseButton">Convert Units</button>
           <div id="conversion" class="collapse">
             <!-- Conversion form -->
             <form action="">
               <div class="form-group">
-                <input type="number" class="form-control" id="conversionWeight" placeholder="weight in lbs" name="weight" required>
+                <h4>Weight</h4>
+                <input type="radio" name="weight" id="weightKg" value="Kg">
+                <label for="weightKg" class="inlineWeight">Lbs to kg</label>&nbsp;
+                <input type="radio" name="weight" id="weightLbs" value="Lbs">
+                <label for="weightLbs" class="inlineWeight">Kg to lbs</label>
+                <input type="number" class="form-control" id="conversionWeight" placeholder="weight" name="weight" required>
               </div>
-              <button type="submit" class="btn btn-default" id="convWeightSubmit">Convert to kg</button>
+              <button type="submit" class="btn btn-default" id="convWeightSubmit">Convert</button>
               <div class="form-group">
-                <input type="text" class="form-control" id="convWeightResult" placeholder="Result" name="conversion" value="">
+                <input type="text" class="form-control" id="convWeightResult" placeholder="result" name="conversion" value="">
               </div>
               </form>
               <form action="">
               <div class="form-group">
+                <h4>Height</h4>
                 <input type="number" class="form-control" id="conversionHeightFt" placeholder="feet" name="height feet" required>
               </div>
               <div class="form-group">
@@ -223,7 +229,7 @@
               </div>
               <button type="submit" class="btn btn-default" id="convHeightSubmit">Convert to cm</button>
               <div class="form-group">
-                <input type="text" class="form-control" id="convHeightResult" placeholder="Result" name="conversion" value="">
+                <input type="text" class="form-control" id="convHeightResult" placeholder="result" name="conversion" value="">
               </div>
             </form>
           </div>
