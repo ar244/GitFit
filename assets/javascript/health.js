@@ -194,19 +194,21 @@ $(document).ready(function () {
 
 		// If female is selected
 		if (radioValue === "F") {
-		var caloricIntake = (10 * caloricWeight) + (6.25 * caloricHeight) - (5 * caloricAge) - 161;
-		caloricIntake 	  = caloricIntake * caloricExercise;
-		$("#caloricIntakeResult").val(caloricIntake + " calories");
-		// Show results to results data window
-		$("cal-intake-results").show().val("Caloric Intake: " + caloricIntake + " cal");
+			var caloricIntake = (10 * caloricWeight) + (6.25 * caloricHeight) - (5 * caloricAge) - 161;
+			caloricIntake 	  = caloricIntake * caloricExercise;
+			caloricIntake = Math.round(caloricIntake);
+			$("#caloricIntakeResult").val(caloricIntake + " calories");
+			// Show results to results data window
+			$("cal-intake-results").show().val("Caloric Intake: " + caloricIntake + " cal");
 		} 
 		  // If male is selected
 		  if (radioValue === "M") {
-		  var caloricIntake = (10 * caloricWeight) + (6.25 * caloricHeight) - (5 * caloricAge) + 5;
-		  caloricIntake 	= caloricIntake * caloricExercise;
-		  $("#caloricIntakeResult").val(caloricIntake + " calories");
-		  // Show results to results data window
-		  $("cal-intake-results").show().val("Caloric Intake: " + caloricIntake + " cal");
+			  var caloricIntake = (10 * caloricWeight) + (6.25 * caloricHeight) - (5 * caloricAge) + 5;
+			  caloricIntake 	= caloricIntake * caloricExercise;
+			  caloricIntake = Math.round(caloricIntake);
+			  $("#caloricIntakeResult").val(caloricIntake + " calories");
+			  // Show results to results data window
+			  $("cal-intake-results").show().val("Caloric Intake: " + caloricIntake + " cal");
 		  }
 
 		}else {
@@ -228,22 +230,27 @@ $(document).ready(function () {
 	// Protein RDA Calculator
 	// ----------------------------------------------
 	$("#proteinSubmit").on("click", function() {
-		event.preventDefault();
-		// Grabbing variables
-		// var proteinAge 	  = parseInt($("#proteinAge").val().trim());
-		var proteinWeight = parseInt($("#proteinWeight").val().trim());
-		// var proteinHeight = parseInt($("#proteinHeight").val().trim());
-		// var proteinExercise = parseInt($("#proteinExercise").val());
+		if ($("#proteinWeight").val().length > 0) {
+			event.preventDefault();
+			// Grabbing variables
+			// var proteinAge 	  = parseInt($("#proteinAge").val().trim());
+			var proteinWeight = parseInt($("#proteinWeight").val().trim());
+			// var proteinHeight = parseInt($("#proteinHeight").val().trim());
+			// var proteinExercise = parseInt($("#proteinExercise").val());
 
-		// console.log(proteinAge);
-		// console.log(proteinWeight);
-		// console.log(proteinHeight);
+			// console.log(proteinAge);
+			// console.log(proteinWeight);
+			// console.log(proteinHeight);
 
-		var proteinRDA = Math.round(proteinWeight * 0.8);
-		$("#proteinResult").val(proteinRDA + " g");
-		//show results in results data window
-		$("protein-results").show().val("Protein: " + proteinRDA + " g");	
-		//object to save data
+			var proteinRDA = Math.round(proteinWeight * 0.8);
+			$("#proteinResult").val(proteinRDA + " g");
+			//show results in results data window
+			$("protein-results").show().val("Protein: " + proteinRDA + " g");	
+			//object to save data
+		} else {
+			 $("#proteinWeight").css("border", "1px solid red");
+		}
+
 		var proteinData = {
 			proteinObj: proteinRDA
 		}
