@@ -131,8 +131,6 @@ footer {
     display: block;
     margin: auto;
     padding: 0;
-    border: 1px solid #c9c7c7;
-    border-radius: 10px;
     margin: 10px 20px 10px 20px;
 }
 
@@ -206,19 +204,18 @@ area {
 
 .descHeader {
     text-align: center;
-    background-color: #4a8eaf;
+    background-color: #5bc0de;
     color: white;
+    font-size: 14px;
     margin: 0;
     height: 30px;
     line-height: 30px;
+    border-radius: 3px;
 }
 
 .collapse-div {
-    background-color: rgba(234, 231, 231, 0.82);
-    border: 2px solid;
+    background-color: #fafff2;
     padding: 20px;
-    box-shadow: 10px;
-    box-shadow: 5px 5px #a59d9d;
     margin-bottom: 10px;
 }
 
