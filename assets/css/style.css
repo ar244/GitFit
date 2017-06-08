@@ -68,6 +68,10 @@ a {
     padding-left: 20px;
 }
 
+a.Recipe {
+    padding-left: 0px;
+}
+
 h1,
 h5 {
     font-size: 18px;
