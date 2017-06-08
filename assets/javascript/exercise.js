@@ -1,8 +1,8 @@
 $(document).ready(function() {
 
-    var muscleName = ["Biceps", "Shoulder", "Ribs", "Chest", "Triceps",
-        "Abs", "Calves", "Glutes", "Trapezius", "Quads",
-        "Hamstring", "Lats", "Brachialis", "Obliques", "Soleus"
+    var muscleName = ["Biceps", "Shoulders", "Ribs", "Chest", "Triceps",
+        "Abs", "Calves", "Glutes", "Traps", "Quads",
+        "Hamstrings", "Lats", "Brachialis", "Obliques", "Soleus"
     ];
 
     var equipmentName = ["Barbell", "SZ-Bar", "Dumbbell", "Gym Mat", "None",
@@ -79,6 +79,7 @@ $(document).ready(function() {
                 //testing
                 console.log("loop is running");
                 muscle = this.className;
+                $('#muscleMenu').text(this.className);
                 displayExercise(muscle);
             }
         }
