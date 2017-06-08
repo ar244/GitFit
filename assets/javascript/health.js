@@ -176,7 +176,7 @@ $(document).ready(function() {
         if ($("#caloricAge").val().length > 0 && $("#caloricWeight").val().length > 0 && $("#caloricHeight").val().length > 0) {
             event.preventDefault();
             // Grabbing variables
-            var radioValue = $("input[type='radio']:checked").val();
+            var radioValue = $("input[name='sex']:checked").val();
             var caloricAge = parseInt($("#caloricAge").val().trim());
             var caloricWeight = parseInt($("#caloricWeight").val().trim());
             var caloricHeight = parseInt($("#caloricHeight").val().trim());
@@ -247,7 +247,7 @@ $(document).ready(function() {
     // weight conversion
     $("#convWeightSubmit").on("click", function() {
         if ($("#conversionWeight").val().length > 0) {
-            var radioValue = $("input[type='radio']:checked").val();
+            var radioValue = $("input[name='weight']:checked").val();
             if (radioValue === "Kg") {
                 event.preventDefault();
                 var convWeight = parseInt($("#conversionWeight").val().trim());
