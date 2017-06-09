@@ -151,6 +151,11 @@ area {
     outline: 16px solid #4cae4c;
 }
 
+#mic {
+    font-size: 18px;
+    color: black;
+}
+
 #toggleBody {
     text-align: center;
 }
