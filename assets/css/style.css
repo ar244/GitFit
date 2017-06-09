@@ -171,8 +171,9 @@ area {
 }
 
 #mic {
-    font-size: 18px;
+    font-size: 14px;
     color: grey;
+    padding-top: 8px;
 }
 
 .toggle {
@@ -262,6 +263,10 @@ area {
     margin: 0 auto;
     margin-top: 20px;
     margin-bottom: 10px;
+}
+
+button#collapseButton:hover {
+	background-color: #92e6ff;
 }
 
 #pdfs {
