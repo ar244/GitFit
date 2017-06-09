@@ -6,23 +6,7 @@ var inputVal = "";
 var queryURL = "";
 
 // Initialize Firebase
-/*var config = {
-    apiKey: "AIzaSyB_JQagylAT6I5kjHi0lx34v_PTvXMG8Dw",
-    authDomain: "gitfit-58bb2.firebaseapp.com",
-    databaseURL: "https://gitfit-58bb2.firebaseio.com",
-    projectId: "gitfit-58bb2",
-    storageBucket: "gitfit-58bb2.appspot.com",
-    messagingSenderId: "536732614585"
-};
-firebase.initializeApp(config);
 
-//set variable to refer to database
-var database = firebase.database();
-console.log(database)
-
-var firstClick = $("a").on('click', function(storeFirstClick)) {
-
-}; */
 
 //function to clear results field
 function resetSearchResults() {
@@ -82,6 +66,4 @@ $(document).ready(function() {
 
     $("button").on("click", fetchAndShowResults);
 
-    //var clickerFn = document
-   // database.ref().push(firstClick);
 });
