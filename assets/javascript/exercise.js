@@ -77,7 +77,7 @@ $(document).ready(function() {
         for (var i = 0; i < muscleName.length; i++) {
             if (this.className === muscleName[i]) {
                 //testing
-                console.log("loop is running");
+                // console.log("loop is running");
                 muscle = this.className;
                 $('#muscleMenu').text(this.className);
                 displayExercise(muscle);
@@ -135,5 +135,33 @@ $(document).ready(function() {
             $("area").on("click", imageMuscles);
         }
     });
+
+     //voice detection code starts here
+    if (annyang) {
+  
+        // defining commands
+        var commands = {
+            'exercises for *tag': function(tag) {
+            tag = tag.charAt(0).toUpperCase() + tag.slice(1);
+                if ($.inArray(tag, muscleName) != -1) {
+                    muscle = tag;
+                    $("#errorMessage").empty();
+                    displayExercise(muscle);
+                } else {
+                    $("#errorMessage").empty();
+                    $("#errorMessage").append("<i class='fa fa-exclamation fa-lg' aria-hidden=true'></i>&nbsp;&nbsp;Muscle group is not detected. Please try again.");
+                    $("#exerciseSpace").empty();
+                }
+            }
+
+        };
+
+        // Add our commands to annyang
+        annyang.addCommands(commands);
+
+        // Start listening. 
+        annyang.start();
+
+    }
 
 });
