@@ -93,7 +93,7 @@ h4 {
 h5 {
     color: black;
     font-weight: bolder;
-    margin-left: 35px;
+    /*margin-left: 35px;*/
 }
 
 
@@ -154,6 +154,10 @@ area {
 #mic {
     font-size: 18px;
     color: black;
+}
+
+.toggle {
+	left: 246px;
 }
 
 #toggleBody {
