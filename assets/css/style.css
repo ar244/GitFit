@@ -47,8 +47,13 @@ body {
 h1 {
     text-align: center;
     font-family: "Open Sans", sans-serif, Arial;
-    color: black;
+    /*color: black;*/
+    color: #018bbc;
     font-weight: bolder;
+}
+
+h1.col-md-6 {
+    color: black;
 }
 
 h3 {
@@ -77,10 +82,18 @@ h5 {
     font-size: 18px;
 }
 
-h5 {
+h4 {
     color: black;
     font-weight: bolder;
     margin-left: 50px;
+    text-align: center;
+    font-size: 19px;
+}
+
+h5 {
+    color: black;
+    font-weight: bolder;
+    margin-left: 35px;
 }
 
 
@@ -180,6 +193,12 @@ area {
 
 
 /***** health/calculators page styles *****/
+
+.jumbotron {
+	text-align: center;
+	color: #fafff2;
+	background-color: #cfeda1;
+}
 
 .btn-default {
     background-color: #00B0EF;
