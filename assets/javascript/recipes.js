@@ -42,7 +42,7 @@ function fetchResults() {
         // Log the queryURL
         console.log(queryURL);
         var resultsElem;
-        for (var i = 0; i < 30; i++) {
+        for (var i = 0; i < Math.min(30, response.hits.length); i++) {
             recipeURL = response.hits[i].recipe.url;
             recipeName = response.hits[i].recipe.label;
             recipeImage = response.hits[i].recipe.image;
