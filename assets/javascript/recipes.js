@@ -1,9 +1,28 @@
 var baseURL = "https://api.edamam.com/search?q="
 var appKey = "4cb43262ed46d6be10b05df6cb89da13"
 var app_ID = "875f4d15"
-var resultCount = 8;
+var resultCount = 30;
 var inputVal = "";
 var queryURL = "";
+
+// Initialize Firebase
+/*var config = {
+    apiKey: "AIzaSyB_JQagylAT6I5kjHi0lx34v_PTvXMG8Dw",
+    authDomain: "gitfit-58bb2.firebaseapp.com",
+    databaseURL: "https://gitfit-58bb2.firebaseio.com",
+    projectId: "gitfit-58bb2",
+    storageBucket: "gitfit-58bb2.appspot.com",
+    messagingSenderId: "536732614585"
+};
+firebase.initializeApp(config);
+
+//set variable to refer to database
+var database = firebase.database();
+console.log(database)
+
+var firstClick = $("a").on('click', function(storeFirstClick)) {
+
+}; */
 
 //function to clear results field
 function resetSearchResults() {
@@ -13,7 +32,6 @@ function resetSearchResults() {
 function createQuery() {
     inputVal = $("#input-field").val().trim();
     queryURL = baseURL + inputVal + "&limit=" + resultCount + "&app_ID" + app_ID + "&app_key=" + appKey;
-    console.log(queryURL);
 }
 //function to allow user to press enter instead of Search
 function searchKeypress(event) {
@@ -29,8 +47,6 @@ function fetchAndShowResults() {
     resetSearchResults();
 };
 
-
-
 function fetchResults() {
     $.ajax({
         url: queryURL,
@@ -41,17 +57,19 @@ function fetchResults() {
 
         // Log the queryURL
         console.log(queryURL);
-        console.log(response);
         var resultsElem;
-        for (var i = 0; i < 8; i++) {
+        for (var i = 0; i < 30; i++) {
             recipeURL = response.hits[i].recipe.url;
             recipeName = response.hits[i].recipe.label;
             recipeImage = response.hits[i].recipe.image;
             recipeYield = response.hits[i].recipe.yield;
             recipeCalories = Math.floor(response.hits[i].recipe.calories / recipeYield);
-            displayImage = "<img src='" + recipeImage + "'/>";
-            displayURL = "<a class='Recipe' href='" + recipeURL + "' target='_blank'>" + recipeName + "</a>";
-            $("#recipesRow").prepend("<div class='recipe-inline'>" + displayImage + "<br>" + displayURL + "<br>Calories Per Serving: " + recipeCalories + "</div>");
+
+            if (recipeCalories < 500) {
+                displayImage = "<a class='Recipe' href='" + recipeURL + "' target='_blank'><img src='" + recipeImage + "'/></a>";
+                displayURL = "<a class='Recipe' href='" + recipeURL + "' target='_blank'>" + recipeName + "</a>";
+                $("#recipesRow").prepend("<div class='recipe-inline'>" + displayImage + "<br>" + displayURL + "<br>Calories Per Serving: " + recipeCalories + "</div>");
+            } 
         }
     });
 };
@@ -63,4 +81,7 @@ $(document).ready(function() {
     $("#input-field").on("keypress", searchKeypress);
 
     $("button").on("click", fetchAndShowResults);
+
+    //var clickerFn = document
+   // database.ref().push(firstClick);
 });
