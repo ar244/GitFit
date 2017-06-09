@@ -203,6 +203,18 @@ area {
     background-size: cover;
 }
 
+#jumbText {
+    font-size: 75px;
+    font-weight: bolder;
+    text-shadow: 4px 4px 8px #0d5f7c;
+}
+
+#jumbSubText {
+    font-size: 28px;
+    font-weight: bolder;
+    text-shadow: 4px 4px 8px #0d5f7c;
+}
+
 .btn-default {
     background-color: #00B0EF;
     color: white;
@@ -222,6 +234,19 @@ area {
     margin: 0 auto;
     margin-top: 20px;
     margin-bottom: 10px;
+}
+
+#pdfs {
+    background-color: #fafff2;
+    margin-top: 20px;
+}
+
+.pdfLinks {
+    padding: 0;
+}
+
+.pdfText {
+    font-size: 16px;
 }
 
 .descHeader {
