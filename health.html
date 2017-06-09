@@ -40,8 +40,8 @@
 
         <div class="row">
           <div class="jumbotron">
-            <h1>Health Calculators</h1>
-            <h2>guage your health status &amp; work towards a better you</h2>
+            <h1 id="jumbText">Health Calculators</h1>
+            <h2 id="jumbSubText">guage your health status &amp; work towards a better you</h2>
           </div>
         </div>
 
@@ -232,6 +232,12 @@
                         </form>
                     </div>
                 </div>
+
+                <!-- workout log and the nutrition log -->
+                <div class="container" id="pdfs"">
+                    <a href="assets/images/gitfit-nutrition-log.pdf" target="_blank" class="pdfLinks"><h1 class="pdfText">Download the nutrition log.</h1></a>
+                    <a href="assets/images/gitfit-workout-log.pdf" target="_blank" class="pdfLinks"><h1 class="pdfText">Download the workout log.</h1></a>
+                </div>
                 <!-- div to hold all results as user gets results from calculator -->
                 <!-- no form, dynamically generated divs:
         <div class="container" id="result-info">
@@ -249,11 +255,6 @@
                     <input type="text" class="form-control" id="protein-results" placeholder="" name="protein" value="">
                 </div>
                 
-                <!-- workout log and the nutrition log -->
-                <div class="container" id="pdfs" style="background-color: #fafff2;">
-                    <a href="assets/images/gitfit-nutrition-log.pdf" target="_blank" style="padding:0;"><h1 style="font-size: 16px;">Download the nutrition log.</h1></a>
-                    <a href="assets/images/gitfit-workout-log.pdf" target="_blank" style="padding:0;"><h1 style="font-size: 16px;">Download the workout log.</h1></a>
-                </div>
             </div>
         </div>
     </div>
