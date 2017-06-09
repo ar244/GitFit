@@ -73,8 +73,28 @@ a {
     padding-left: 20px;
 }
 
-a.Recipe {
+a:link.Recipe {
     padding-left: 0px;
+    color: #000000;
+    text-decoration: underline;
+}
+
+a:visited.Recipe {
+    padding-left: 0px;
+    color: #008000;
+    text-decoration: underline;
+}
+
+a:hover.Recipe {
+    padding-left: 0px;
+    color: #ff0000; 
+    text-decoration: none; 
+}
+
+a:active.Recipe {
+    padding-left: 0px;
+    color: #0000ff;
+    text-decoration: underline;
 }
 
 h1,
