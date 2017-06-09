@@ -223,11 +223,11 @@ area {
 
 /***** health/calculators page styles *****/
 
-.jumbotron {
+#health-jumbo {
 	text-align: center;
 	color: #fafff2;
 	background-color: #cfeda1;
-	background: url(http://www.thedietitiandaily.com/wp-content/uploads/2016/04/r-healthy-food-large570.jpg) no-repeat center center;
+	background: url(../images/weights.jpg) no-repeat center center;
     -webkit-background-size: cover;    
     background-size: cover;
 }
@@ -323,6 +323,26 @@ button#collapseButton:hover {
     height: 50%;
 }
 
+#recipes-jumbo {
+    text-align: center;
+    color: #fafff2;
+    background-color: #cfeda1;
+    background: url(../images/food.jpg) no-repeat center center;
+    -webkit-background-size: cover;    
+    background-size: cover;
+}
+
+#jumbText {
+    font-size: 75px;
+    font-weight: bolder;
+    text-shadow: 4px 4px 8px #0d5f7c;
+}
+
+#jumbSubText {
+    font-size: 28px;
+    font-weight: bolder;
+}
+
 .recipeContainer {
     height: 120px;
     background-color: #7bb5d8;
@@ -379,9 +399,20 @@ div.recipe-inline {
 }
 
 div.recipe-inline img {
-    width:25vw;
+    width: 25vw;
     height: 35vh;
 }
+
+/***** footer styles *****/
+
+.content {
+  min-height: calc(100vh - 200px);
+  margin-bottom: 20px;
+}
+.footer {
+  height: 50px;
+}
+
 
 @media (max-width: 1024px) {
     /*Need something here*/

@@ -13,6 +13,7 @@
 </head>
 
 <body>
+  <div class="content">
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -30,10 +31,18 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
+
     <div class="container">
+
+      <div class="row">
+        <div class="jumbotron" id="recipes-jumbo">
+          <h1 id="jumbText">Recipes</h1>
+          <h2 id="jumbSubText">search for healthy recipes</h2>
+        </div>
+      </div>
+
         <div class="row">
             <div class="col-md-12">
-                <h2>Search for healthy recipes</h2>
                 <div class="input-group">
                     <input type="text" id="input-field" class="form-control" placeholder="Enter Ingredient">
                     <span class="input-group-btn">
@@ -47,8 +56,9 @@
             <div class="col-md-4" id="recentSearches"></div>
         </div>
     </div>
+  </div>
   
-  <br><footer>&copy;2017 Ebru Yucesar, Anuradha Ramachandra, Rachel Vaughan, Raquel Rodriguez, Jamie Gelo</footer><br>
+  <footer class="footer">&copy;2017 Ebru Yucesar, Anuradha Ramachandra, Rachel Vaughan, Raquel Rodriguez, Jamie Gelo</footer>
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
