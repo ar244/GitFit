@@ -99,12 +99,13 @@ a:active.Recipe {
 
 h3.recentHistory {
     width: auto;
-    margin: auto;
+    height: auto;
+    
     font-size: 18px;
     color: #018bbc;
     text-align: right;
     padding-bottom: 20px;
-
+    display: inline;
 }
 
 h1,
