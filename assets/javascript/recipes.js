@@ -87,3 +87,26 @@ $(document).ready(function() {
 
     $("#recipeSearchButton").on("click", fetchAndShowResults);
 });
+
+//voice commands function
+if (annyang) {
+// defining commands
+    var commands = {
+        'recipes with *tag': function(tag) {
+            console.log(tag);
+            function voiceQuery() {
+                queryURL = baseURL + tag + "&limit=" + resultCount + "&app_ID" + app_ID + "&app_key=" + appKey;
+            }
+            $("#recipesRow").empty();
+            voiceQuery();
+            fetchResults();
+            resetSearchResults();
+        }
+    };
+
+    // Add our commands to annyang
+    annyang.addCommands(commands);
+ 
+    // Start listening. 
+    annyang.start();
+}
