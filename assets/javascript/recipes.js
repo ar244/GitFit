@@ -115,7 +115,7 @@ $(document).ready(function() {
 });
 
 //voice commands function
-if (annyang) {
+/*if (annyang) {
     //defining commands
     var commands = {
         'recipes with *tag': function(tag) {
@@ -136,3 +136,4 @@ if (annyang) {
     // Start listening. 
     annyang.start();
 }
+*/
