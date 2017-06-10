@@ -266,7 +266,7 @@ area {
 }
 
 button#collapseButton:hover {
-	background-color: #92e6ff;
+	background-color: #70d6f4;
 }
 
 #pdfs {
@@ -425,5 +425,39 @@ div.recipe-inline img {
     /*currently the nav items are disappearing at this width, fix that*/
     #anatomy {
         margin: 0;
+    }
+
+    .navbar-default .navbar-nav>li>a {
+        font-size: 22px;
+        width: 20%;
+        background-color: #e8f9ff;
+        width: 100%;
+        padding: 10px;
+        border-bottom: 1px solid #b8dfed;
+        text-align: center;
+    }
+
+    .navbar-default .navbar-nav>li>a:hover{
+        background-color: #e8f9ff;
+    }
+
+    #logo {
+        margin: 0 125px 0 125px;
+    }
+
+    .container {
+        margin-top: 120px;
+    }
+
+    #muscleMenu {
+        margin: 10px 120px 0 120px;
+    }
+
+    h5 {
+        margin: 10px 140px 0 140px;
+    }
+
+    #mic {
+        margin: 10px 100px 0 100px;
     }
 }
