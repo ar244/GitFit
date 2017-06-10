@@ -2,7 +2,6 @@ var baseURL = "https://api.edamam.com/search?q="
 var appKey = "4cb43262ed46d6be10b05df6cb89da13"
 var app_ID = "875f4d15"
 var resultCount = 30;
-var queryURL = "";
 
 // Initialize Firebase
 var config = {
@@ -122,12 +121,11 @@ if (annyang) {
         'recipes with *tag': function(tag) {
             console.log(tag);
 
-            function voiceQuery() {
-                queryURL = baseURL + tag + "&limit=" + resultCount + "&app_ID" + app_ID + "&app_key=" + appKey;
-            }
+
+            createQuery(); 
             $("#recipesRow").empty();
             voiceQuery();
-            fetchResults();
+            fetchResults(edamamUrl);
             resetSearchResults();
         }
     };
