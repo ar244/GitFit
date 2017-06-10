@@ -409,8 +409,8 @@ div.recipe-inline {
 }
 
 div.recipe-inline img {
-    width: 25vw;
-    height: 35vh;
+    width: 150px;
+    height: 150px;
 }
 
 /***** footer styles *****/
