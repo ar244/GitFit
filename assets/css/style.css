@@ -98,12 +98,12 @@ a:active.Recipe {
 }
 
 h3.recentHistory {
-    width: 200px;
-    height: 25px;
+    width: auto;
     margin: auto;
     font-size: 18px;
+    color: #018bbc;
     text-align: right;
-    background-color: #white;
+    padding-bottom: 20px;
 
 }
 
@@ -187,7 +187,7 @@ area {
 }
 
 .toggle {
-	left: 246px;
+    left: 246px;
 }
 
 #toggleBody {
@@ -234,10 +234,10 @@ area {
 /***** health/calculators page styles *****/
 
 #health-jumbo {
-	text-align: center;
-	color: #fafff2;
-	background-color: #cfeda1;
-	background: url(../images/weights.jpg) no-repeat center center;
+    text-align: center;
+    color: #fafff2;
+    background-color: #cfeda1;
+    background: url(../images/weights.jpg) no-repeat center center;
     -webkit-background-size: cover;    
     background-size: cover;
 }
@@ -276,7 +276,7 @@ area {
 }
 
 button#collapseButton:hover {
-	background-color: #70d6f4;
+    background-color: #70d6f4;
 }
 
 #pdfs {

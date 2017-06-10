@@ -17,25 +17,39 @@ var config = {
 firebase.initializeApp(config);
 
 //set variable to refer to database
-var db = firebase.database();
-var recentSearches = $("#input-field").val();
+var database = firebase.database();
 
-db.ref("/recentSearches").on("value", function(snapshot) {
-    
-    if (snapshot.child("recentSearches").exists()) {
-        $("#recentSearches").html(snapshot.val().recentSearches);
-    }
-    console.log(recentSearches);
+//push data to firebase
+$("#recipeSearchButton").on("click", function(event) {
+    event.preventDefault();
+
+    var recentSearch = $("#recipe-input-field").val().trim();
+
+    var firebaseData = {
+        input: recentSearch
+    };
+database.ref().push(firebaseData);
+console.log(firebaseData.input);
+
+});
+
+database.ref().on("child_added", function(childSnapshot, prevChildKey) {
+
+    var returnResult = childSnapshot.val().input;
+
+$("#recentHistory").html("Recent Search: " + returnResult);
+}, function(errorObject) {
+      console.log("Errors handled: " + errorObject.code);
 });
 
 
 //function to clear results field
 function resetSearchResults() {
-    $("#input-field").val("");
+    $("#recipe-input-field").val("");
 };
 //function to create the search query with users input
 function createQuery() {
-    inputVal = $("#input-field").val().trim();
+    inputVal = $("#recipe-input-field").val().trim();
     queryURL = baseURL + inputVal + "&limit=" + resultCount + "&app_ID" + app_ID + "&app_key=" + appKey;
 }
 //function to allow user to press enter instead of Search
@@ -56,12 +70,12 @@ function fetchResults() {
     $.ajax({
         url: queryURL,
         method: "GET"
-            // Store all of the retrieved data inside of an object called "response"
+    // Store all of the retrieved data inside of an object called "response"
     }).done(function(response) {
         if (response.hits.length === 0) return;
 
         // Log the queryURL
-        console.log(queryURL);
+        //console.log(queryURL);
         var resultsElem;
         for (var i = 0; i < Math.min(30, response.hits.length); i++) {
             recipeURL = response.hits[i].recipe.url;
@@ -83,7 +97,7 @@ function fetchResults() {
 $(document).ready(function() {
     event.preventDefault();
 
-    $("#input-field").on("keypress", searchKeypress);
+    $("#recipe-input-field").on("keypress", searchKeypress);
 
     $("#recipeSearchButton").on("click", fetchAndShowResults);
 });
